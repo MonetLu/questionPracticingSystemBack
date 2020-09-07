@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class DeptServiceImpl implements DeptService {
-    @Override
+    
     public void save(Dept dept) {
         SqlSession sqlSession = null;
         try{
@@ -41,7 +41,7 @@ public class DeptServiceImpl implements DeptService {
         }
     }
 
-    @Override
+    
     public void delete(Dept dept) {
         SqlSession sqlSession = null;
         try{
@@ -66,7 +66,7 @@ public class DeptServiceImpl implements DeptService {
         }
     }
 
-    @Override
+    
     public void update(Dept dept) {
         SqlSession sqlSession = null;
         try{
@@ -91,7 +91,7 @@ public class DeptServiceImpl implements DeptService {
         }
     }
 
-    @Override
+    
     public Dept findById(String id) {
         SqlSession sqlSession = null;
         try{
@@ -113,7 +113,7 @@ public class DeptServiceImpl implements DeptService {
         }
     }
 
-    @Override
+    
     public List<Dept> findAll() {
         SqlSession sqlSession = null;
         try{
@@ -135,7 +135,7 @@ public class DeptServiceImpl implements DeptService {
         }
     }
 
-    @Override
+    
     public PageInfo findAll(int page, int size) {
         SqlSession sqlSession = null;
         try{

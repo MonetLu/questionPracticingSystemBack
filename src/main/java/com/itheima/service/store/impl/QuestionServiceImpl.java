@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class QuestionServiceImpl implements QuestionService {
-    @Override
+    
     public String save(Question question,boolean flag) {
         SqlSession sqlSession = null;
         try{
@@ -58,7 +58,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
     }
 
-    @Override
+    
     public void delete(Question question) {
         SqlSession sqlSession = null;
         try{
@@ -83,7 +83,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
     }
 
-    @Override
+    
     public void update(Question question, boolean flag) {
         SqlSession sqlSession = null;
         try{
@@ -115,7 +115,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
     }
 
-    @Override
+    
     public Question findById(String id) {
         SqlSession sqlSession = null;
         try{
@@ -137,7 +137,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
     }
 
-    @Override
+    
     public List<Question> findAll() {
         SqlSession sqlSession = null;
         try{
@@ -159,7 +159,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
     }
 
-    @Override
+    
     public PageInfo findAll(int page, int size) {
         SqlSession sqlSession = null;
         try{
@@ -184,7 +184,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
     }
 
-    @Override
+    
     public ByteArrayOutputStream getReport() throws IOException {
         //获取对应要展示的数据
         SqlSession sqlSession = null;

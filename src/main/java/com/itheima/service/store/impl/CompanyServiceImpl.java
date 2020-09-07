@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class CompanyServiceImpl implements CompanyService {
-    @Override
+    
     public void save(Company company) {
         SqlSession sqlSession = null;
         try{
@@ -41,7 +41,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
     }
 
-    @Override
+    
     public void delete(Company company) {
         SqlSession sqlSession = null;
         try{
@@ -66,7 +66,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
     }
 
-    @Override
+    
     public void update(Company company) {
         SqlSession sqlSession = null;
         try{
@@ -91,7 +91,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
     }
 
-    @Override
+    
     public Company findById(String id) {
         SqlSession sqlSession = null;
         try{
@@ -113,7 +113,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
     }
 
-    @Override
+    
     public List<Company> findAll() {
         SqlSession sqlSession = null;
         try{
@@ -135,7 +135,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
     }
 
-    @Override
+    
     public PageInfo findAll(int page, int size) {
         SqlSession sqlSession = null;
         try{

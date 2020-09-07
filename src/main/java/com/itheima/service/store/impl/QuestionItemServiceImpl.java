@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class QuestionItemServiceImpl implements QuestionItemService {
-    @Override
+    
     public void save(QuestionItem questionItem) {
         SqlSession sqlSession = null;
         try{
@@ -41,7 +41,7 @@ public class QuestionItemServiceImpl implements QuestionItemService {
         }
     }
 
-    @Override
+    
     public void delete(QuestionItem questionItem) {
         SqlSession sqlSession = null;
         try{
@@ -66,7 +66,7 @@ public class QuestionItemServiceImpl implements QuestionItemService {
         }
     }
 
-    @Override
+    
     public void update(QuestionItem questionItem) {
         SqlSession sqlSession = null;
         try{
@@ -91,7 +91,7 @@ public class QuestionItemServiceImpl implements QuestionItemService {
         }
     }
 
-    @Override
+    
     public QuestionItem findById(String id) {
         SqlSession sqlSession = null;
         try{
@@ -113,7 +113,7 @@ public class QuestionItemServiceImpl implements QuestionItemService {
         }
     }
 
-    @Override
+    
     public PageInfo findAll(String questionId ,int page, int size) {
         SqlSession sqlSession = null;
         try{
