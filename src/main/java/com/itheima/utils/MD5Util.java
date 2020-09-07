@@ -1,9 +1,10 @@
 package com.itheima.utils;
 
+import sun.misc.BASE64Encoder;
 import java.security.MessageDigest;
 
-import org.apache.commons.codec.binary.Base64;
-import sun.misc.BASE64Encoder;
+
+
 
 
 public class MD5Util {
