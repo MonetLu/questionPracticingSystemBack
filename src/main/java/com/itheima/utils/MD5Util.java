@@ -3,6 +3,7 @@ package com.itheima.utils;
 import java.security.MessageDigest;
 
 import org.apache.commons.codec.binary.Base64;
+import sun.misc.BASE64Encoder;
 
 
 public class MD5Util {
@@ -20,8 +21,11 @@ public class MD5Util {
             //2.加密密码
             byte[] by = md5.digest(password.getBytes());
 
+            //3.创建编码对象
+            BASE64Encoder encoder = new BASE64Encoder();
+
             //4.对结果编码
-            return Base64.encodeBase64String(by);
+            return encoder.encode(by);
         }catch (Exception e){
             throw new RuntimeException(e);
         }

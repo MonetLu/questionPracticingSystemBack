@@ -18,12 +18,12 @@ public class CharacterEncodingFilter implements Filter {
      * @param filterConfig
      * @throws ServletException
      */
-    @Override
+
     public void init(FilterConfig filterConfig) throws ServletException {
         this.filterConfig = filterConfig;
     }
 
-    @Override
+
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         //1.定义和协议相关的请求和响应对象
         HttpServletRequest request ;
@@ -45,7 +45,7 @@ public class CharacterEncodingFilter implements Filter {
         }
     }
 
-    @Override
+
     public void destroy() {
         //可以做一些清理操作
     }

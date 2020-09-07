@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="../../base.jsp"%>
+<%@ include file="../../base.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +28,8 @@
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <form id="editForm" action="${ctx}/store/question?operation=edit" method="post" enctype="multipart/form-data">
+                    <form id="editForm" action="${ctx}/store/question?operation=edit" method="post"
+                          enctype="multipart/form-data">
 
                         <input type="hidden" name="id" value="${question.id}">
 
@@ -37,7 +38,8 @@
 
                                 <div class="col-md-2 title">所属企业</div>
                                 <div class="col-md-4 data">
-                                    <select class="form-control" name="companyId" onchange="document.getElementById('courseName').value=this.options[this.selectedIndex].text">
+                                    <select class="form-control" name="companyId"
+                                            onchange="document.getElementById('courseName').value=this.options[this.selectedIndex].text">
                                         <option value="">请选择</option>
                                         <c:forEach items="${companyList}" var="item">
                                             <option value="${item.id}" ${question.companyId eq item.id ? 'selected' : ''}>${item.name}</option>
@@ -47,7 +49,8 @@
 
                                 <div class="col-md-2 title">所属类别</div>
                                 <div class="col-md-4 data">
-                                    <select class="form-control" name="catalogId" onchange="document.getElementById('catalogName').value=this.options[this.selectedIndex].text">
+                                    <select class="form-control" name="catalogId"
+                                            onchange="document.getElementById('catalogName').value=this.options[this.selectedIndex].text">
                                         <option value="">请选择</option>
                                         <c:forEach items="${catalogList}" var="item">
                                             <option value="${item.id}" ${question.catalogId eq item.id ? 'selected' : ''}>${item.name}</option>
@@ -62,12 +65,14 @@
 
                                 <div class="col-md-2 title rowHeight2x">题干</div>
                                 <div class="col-md-10 data rowHeight2x">
-                                    <textarea class="form-control" rows="3" name="subject">${question.subject}</textarea>
+                                    <textarea class="form-control" rows="3"
+                                              name="subject">${question.subject}</textarea>
                                 </div>
 
                                 <div class="col-md-2 title">题干图片</div>
                                 <div class="col-md-10 data ">
-                                    <input type="file" class="form-control" placeholder="题干图片" name="picture" value="${question.picture}">
+                                    <input type="file" class="form-control" placeholder="题干图片" name="picture"
+                                           value="${question.picture}">
                                 </div>
 
                                 <c:if test="${question.picture.length() > 0}">
@@ -79,7 +84,8 @@
 
                                 <div class="col-md-2 title rowHeight2x">题目分析</div>
                                 <div class="col-md-10 data rowHeight2x">
-                                    <textarea class="form-control" rows="3" name="analysis">${question.analysis}</textarea>
+                                    <textarea class="form-control" rows="3"
+                                              name="analysis">${question.analysis}</textarea>
                                 </div>
 
                                 <div class="col-md-2 title">题目类型</div>
@@ -125,7 +131,9 @@
                             </div>
                             <!--工具栏-->
                             <div class="box-tools text-center">
-                                <button type="button" onclick='document.getElementById("editForm").submit()' class="btn bg-maroon">保存</button>
+                                <button type="button" onclick='document.getElementById("editForm").submit()'
+                                        class="btn bg-maroon">保存
+                                </button>
                                 <button type="button" class="btn bg-default" onclick="history.back(-1);">返回</button>
                             </div>
                         </div>

@@ -137,7 +137,7 @@ public class QuestionServlet extends BaseServlet {
             // --处理form表单提交过来的普通数据
             //将数据获取到，封装成一个对象
             Question question = BeanUtil.fillBean(fileItems,Question.class);
-            //调用业务层接口save
+            //调用业务层接口save，返回的是图片的id，这个id就是我们存储文件时的文件名字
             String picture = questionService.save(question , flag);
 
             // --处理form表单提交过来的文件数据
@@ -176,10 +176,11 @@ public class QuestionServlet extends BaseServlet {
             DiskFileItemFactory factory = new DiskFileItemFactory();
             //3.Servlet文件上传核心对象
             ServletFileUpload fileUpload = new ServletFileUpload(factory);
-            //4.从request中读取数据
+            //4.从request中读取数据，这里面是该文件此次上传的信息
             List<FileItem> fileItems = fileUpload.parseRequest(request);
 
             //创建一个标记位,标记当前时候有上传文件的操作
+            //fileItems 是表单的每一项，由于是加了enctype="multipart/form-data"，所以只有带文件的name是非空的，其余的item的name属性都是空的
             boolean flag = false;
             for(FileItem item :fileItems){
                 if(StringUtils.isNotBlank(item.getName())){
@@ -189,17 +190,20 @@ public class QuestionServlet extends BaseServlet {
             }
 
             // --处理form表单提交过来的普通数据
-            //将数据获取到，封装成一个对象
+            //将数据获取到，封装成一个对象，我们制作了一个工具类叫做BeanUnil
             Question question = BeanUtil.fillBean(fileItems,Question.class);
             //调用业务层接口save
             questionService.update(question , flag);
 
             // --处理form表单提交过来的文件数据
             for(FileItem item : fileItems){
-                //5.当前表单是否是文件表单
+                //5.当前表单是否是文件表单，如果是文件字段，执行
+                //item.ifFOrmField():是文件字段，返回false；不是文件字段，返回true
                 if(!item.isFormField()){
-                    //6.从临时存储文件的地方将内容写入到指定位置
+                    //6.从临时存储文件的地方将内容写入到指定位置，File的构造器是(文件路径，文件名)
+                    //虚拟目录的根目录是webapp，所以upload代表webapp下的upload文件夹
                     item.write(new File(this.getServletContext().getRealPath("upload"),question.getId()));
+
                 }
             }
         }
