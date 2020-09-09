@@ -50,9 +50,9 @@ public class AuthorFilter implements Filter {
                 return;
             }
             String queryString = request.getQueryString();
-            if (queryString.endsWith("operation=login")
-                    ||queryString.endsWith("operation=home")
-                    ||queryString.endsWith("operation=logout")) {
+            if (queryString == null || queryString.endsWith("operation=login")
+                    || queryString.endsWith("operation=home")
+                    || queryString.endsWith("operation=logout")) {
                 chain.doFilter(request, response);
                 return;
             }
@@ -70,9 +70,9 @@ public class AuthorFilter implements Filter {
             url = url + "?" + queryString;
             //2. 获取到当前登陆人允许的操做
             String authorStr = session.getAttribute("authorStr").toString();
-
-//            System.out.println(url);
-//            System.out.println(authorStr);
+//TODO: set the links for different functions in different modules
+            System.out.println(url);
+            System.out.println(authorStr);
             //3. 比对本次操作是否在当前登陆人允许的操做范围内
             if (authorStr.contains(url)) {
                 //3.1 如果允许，放行
